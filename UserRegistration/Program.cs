@@ -8,7 +8,7 @@ namespace UserRegistration
         static void Main(string[] args)
         {
             //variables
-            string firstName,lastName,emailId;
+            string firstName,lastName,emailId,phoneNumber;
 
             Console.WriteLine("Welcome to user Registration problem");
 
@@ -42,6 +42,20 @@ namespace UserRegistration
 
             }
 
+          
+        
+                Console.WriteLine("Enter your phone Number : ");
+                phoneNumber = Console.ReadLine();
+
+                while (!(validatePhoneNumber(phoneNumber)))
+                {
+                    Console.WriteLine("Please enter valid phone number");
+                    phoneNumber = Console.ReadLine();
+
+                }
+            
+
+
         }
 
         public static bool validateName(string name)
@@ -66,6 +80,21 @@ namespace UserRegistration
 
             Regex re = new Regex(pattern);
             if (re.IsMatch(emailId))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool validatePhoneNumber(string phoneNumber)
+        {
+            string pattern = @"(^[1-9]{1,}[0-9\\-]{0,}[ ]{1}[1-9]{1}[0-9]{9}$)";
+
+            Regex re = new Regex(pattern);
+            if (re.IsMatch(phoneNumber))
             {
                 return true;
             }
