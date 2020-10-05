@@ -56,6 +56,7 @@ namespace UserRegistration
 
             }
 
+           
                 Console.WriteLine("Enter your password : ");
                 password = Console.ReadLine();
 
@@ -65,8 +66,8 @@ namespace UserRegistration
                     password = Console.ReadLine();
 
                 }
-            
 
+            
 
         }
 

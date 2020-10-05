@@ -56,7 +56,7 @@ namespace UserRegistration
 
         public bool validatePassword(string password)
         {
-            string pattern = @"(^[a-zA-Z0-9!@#$%&*()-+=^]{8,}$)";
+            string pattern = @"(^(?=.*[A-Z])([A-Za-z0-9!@#$%&*()-+=^]){8,}$)";
 
             Regex re = new Regex(pattern);
             if (re.IsMatch(password))
