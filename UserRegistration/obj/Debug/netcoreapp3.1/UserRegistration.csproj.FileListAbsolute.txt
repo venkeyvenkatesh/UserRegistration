@@ -10,3 +10,4 @@ C:\Users\Administrator\source\repos\UserRegistration\UserRegistration\obj\Debug\
 C:\Users\Administrator\source\repos\UserRegistration\UserRegistration\obj\Debug\netcoreapp3.1\UserRegistration.dll
 C:\Users\Administrator\source\repos\UserRegistration\UserRegistration\obj\Debug\netcoreapp3.1\UserRegistration.pdb
 C:\Users\Administrator\source\repos\UserRegistration\UserRegistration\obj\Debug\netcoreapp3.1\UserRegistration.genruntimeconfig.cache
+C:\Users\Administrator\source\repos\UserRegistration\UserRegistration\obj\Debug\netcoreapp3.1\UserRegistration.csprojAssemblyReference.cache
