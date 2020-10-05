@@ -53,5 +53,20 @@ namespace UserRegistration
                 return false;
             }
         }
+
+        public bool validatePassword(string password)
+        {
+            string pattern = @"(^[a-zA-Z0-9!@#$%&*()-+=^]{8,}$)";
+
+            Regex re = new Regex(pattern);
+            if (re.IsMatch(password))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

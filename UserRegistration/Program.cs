@@ -8,16 +8,16 @@ namespace UserRegistration
         static void Main(string[] args)
         {
             //variables
-            string firstName,lastName,emailId,phoneNumber;
+            string firstName,lastName,emailId,phoneNumber,password;
 
-            Console.WriteLine("Welcome to user Registration problem");
+             Console.WriteLine("Welcome to user Registration problem");
 
-            Validation obj = new Validation();
+             Validation obj = new Validation();
 
             Console.WriteLine("Enter your first name: ");
             firstName = Console.ReadLine();
 
-           while(!(obj.validateName(firstName)))
+            while (!(obj.validateName(firstName)))
             {
                 Console.WriteLine("Please enter valid first Name ");
                 firstName = Console.ReadLine();
@@ -40,19 +40,29 @@ namespace UserRegistration
             while (!(obj.validateEmailId(emailId)))
             {
                 Console.WriteLine("Please enter valid Email id ");
-               emailId = Console.ReadLine();
+                emailId = Console.ReadLine();
 
             }
 
-          
-        
-                Console.WriteLine("Enter your phone Number : ");
+
+
+            Console.WriteLine("Enter your phone Number : ");
+            phoneNumber = Console.ReadLine();
+
+            while (!(obj.validatePhoneNumber(phoneNumber)))
+            {
+                Console.WriteLine("Please enter valid phone number");
                 phoneNumber = Console.ReadLine();
 
-                while (!(obj.validatePhoneNumber(phoneNumber)))
+            }
+
+                Console.WriteLine("Enter your password : ");
+                password = Console.ReadLine();
+
+                while (!(obj.validatePassword(password)))
                 {
-                    Console.WriteLine("Please enter valid phone number");
-                    phoneNumber = Console.ReadLine();
+                    Console.WriteLine("Please enter valid password");
+                    password = Console.ReadLine();
 
                 }
             
@@ -60,6 +70,6 @@ namespace UserRegistration
 
         }
 
-       
+
     }
 }
