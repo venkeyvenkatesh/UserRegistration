@@ -84,8 +84,13 @@ namespace UserRegistration
 
                 }
 
-            Console.WriteLine("Registration successful");
+            Console.WriteLine("\nRegistration successful\n");
 
+            Console.WriteLine("First Name :" + firstName);
+                 Console.WriteLine("Last Name: " +lastName); 
+            Console.WriteLine("Email address :" +emailId);
+            Console.WriteLine("phone number :" +phoneNumber);
+            Console.WriteLine("passord :" +password);
         }
 
 
