@@ -28,9 +28,8 @@ namespace UserRegistration
                     //valdating the fisrtName
                     if (!(obj.validate(firstName, "(^[A-Z]{1}[a-z]{2,}$)")))
                     {
-                        // Console.WriteLine("Please enter valid first Name ");
-                        // firstName = Console.ReadLine();
-                        throw new MyException("First name is not in required format....");
+
+                        throw new MyException("Exception::First name is not in required format....");
 
                     }
                     break;
@@ -56,9 +55,8 @@ namespace UserRegistration
                     if (!(obj.validate(lastName, "(^[A-Z]{1}[a-z]{2,}$)")))
                     {
 
-                        // Console.WriteLine("Please enter valid last Name ");
-                        //lastName = Console.ReadLine();
-                        throw new MyException("Last name is not in required format....");
+
+                        throw new MyException("Exception::Last name is not in required format....");
 
                     }
                     break;
@@ -84,9 +82,8 @@ namespace UserRegistration
                     //valdating the EmailAddress
                     if (!(obj.validate(emailId, "(^[a-zA-Z0-9]{1,}([+-_.][a-zA-Z0-9]{1,}){0,}@[a-zA-Z0-9]{1,}(\\.[a-zA-Z]{1,}){0,1}(\\.[a-zA-Z]{2,})$)")))
                     {
-                        // Console.WriteLine("Please enter valid Email id ");
-                        // emailId = Console.ReadLine();
-                        throw new MyException("Email is not in required format....");
+
+                        throw new MyException("Exception::Email is not in required format....");
 
                     }
                     break;
@@ -110,9 +107,7 @@ namespace UserRegistration
                     //valdating the phoneNumber
                     if (!(obj.validate(phoneNumber, "(^[+[1-9]{1,}[0-9\\-]{0,}[ ]{1}[1-9]{1}[0-9]{9}$)")))
                     {
-                        // Console.WriteLine("Please enter valid phone number");
-                        //  phoneNumber = Console.ReadLine();
-                        throw new MyException("Phone number is not in required format....");
+                        throw new MyException("Exception::Phone number is not in required format....");
 
 
                     }
@@ -137,9 +132,7 @@ namespace UserRegistration
                     //valdating the password
                     if (!(obj.validate(password, "(^(?=.{8,}$)((?=.*[A-Z])(?=.*[0-9])([a-zA-Z0-9]*[!@#$^&*()-+=]{1}[a-zA-Z0-9]*))$)")))
                     {
-                        // Console.WriteLine("Please enter valid password");
-                        // password = Console.ReadLine();
-                        throw new MyException("Password is not in required format....");
+                        throw new MyException("Exception::Password is not in required format....");
 
                     }
                     break;

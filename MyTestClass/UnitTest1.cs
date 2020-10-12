@@ -38,7 +38,7 @@ namespace MyTestClass
         [DataRow("venkey@gmail..com")]
         [DataRow("venkeygmail.com")]
 
-        public void TestMethod2(string email)
+        public void TestMethodForEmail(string email)
         {
             //arrange
             Validation obj = new Validation();
