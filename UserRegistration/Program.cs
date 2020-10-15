@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace UserRegistration
 {
@@ -11,149 +13,138 @@ namespace UserRegistration
         /// <param name="args">The arguments.</param>
         static void Main(string[] args)
         {
-            //variables
-            string firstName, lastName, emailId, phoneNumber, password;
 
+
+            NewUser userObject = new NewUser();
+
+            ValidationContext context = new ValidationContext(userObject, null, null);
+            List<ValidationResult> result = new List<ValidationResult>();
+            
+            bool isValid;
+          
             Console.WriteLine("Welcome to user Registration problem");
 
-            Validation obj = new Validation();
+            
             while (true)
             {
-                //getting firstName input from user
+                //getting firstName as input from user
                 Console.WriteLine("Enter your first name: ");
-                firstName = Console.ReadLine();
-
-                try
+                userObject.firstName = Console.ReadLine();
+                isValid = Validator.TryValidateObject(userObject, context, result,true);
+                //valdating the fisrtName
+                if (!isValid)
                 {
-                    //valdating the fisrtName
-                    if (!(obj.validate(firstName, "(^[A-Z]{1}[a-z]{2,}$)")))
-                    {
 
-                        throw new MyException("Exception::First name is not in required format....");
-
-                    }
-                    break;
+                    
+                    Console.WriteLine(result[result.Count-1].ErrorMessage);
+                  
                 }
-
-                catch (MyException me)
+                else
                 {
-                    Console.WriteLine(me.Message);
-
+                    break;
                 }
             }
 
-
             while (true)
             {
-                //getting lastName as input from user
+                //getting LastName as  input from user
                 Console.WriteLine("Enter your Last name: ");
-                lastName = Console.ReadLine();
+                userObject.lastName = Console.ReadLine();
 
-                try
+                //valdating the LastName
+                isValid = Validator.TryValidateObject(userObject, context, result,true);
+                
+                if (!isValid)
                 {
-                    //valdating the lastName
-                    if (!(obj.validate(lastName, "(^[A-Z]{1}[a-z]{2,}$)")))
-                    {
-
-
-                        throw new MyException("Exception::Last name is not in required format....");
-
-                    }
+                    
+                    Console.WriteLine(result[result.Count-1].ErrorMessage);
+                   
+                }
+                else
+                {
                     break;
                 }
-
-                catch (MyException me)
-                {
-                    Console.WriteLine(me.Message);
-
-                }
-
             }
 
 
             while (true)
             {
-                //getting EmailAddress as input from user
-                Console.WriteLine("Enter your Email address: ");
-                emailId = Console.ReadLine();
+                //getting emailAddress as  input from user
+                Console.WriteLine("Enter your Email Address ");
+                userObject.emailId = Console.ReadLine();
 
-                try
+                //valdating the EmailId
+                isValid = Validator.TryValidateObject(userObject, context, result,true);
+               
+                if (!isValid)
                 {
-                    //valdating the EmailAddress
-                    if (!(obj.validate(emailId, "(^[a-zA-Z0-9]{1,}([+-_.][a-zA-Z0-9]{1,}){0,}@[a-zA-Z0-9]{1,}(\\.[a-zA-Z]{1,}){0,1}(\\.[a-zA-Z]{2,})$)")))
-                    {
-
-                        throw new MyException("Exception::Email is not in required format....");
-
-                    }
+                    
+                    Console.WriteLine(result[result.Count-1].ErrorMessage);
+             
+                }
+                else
+                {
                     break;
                 }
-                catch (MyException me)
-                {
-                    Console.WriteLine(me.Message);
-
-                }
-
             }
+
+
+
 
 
             while (true)
             {
                 //getting phoneNumber as input from user
-                Console.WriteLine("Enter your phone Number : ");
-                phoneNumber = Console.ReadLine();
-                try
+                Console.WriteLine("Enter your phone number ");
+                userObject.phoneNumber = Console.ReadLine();
+
+                //valdating the Phone Number
+                isValid = Validator.TryValidateObject(userObject, context, result,true);
+                
+                if (!isValid)
                 {
-                    //valdating the phoneNumber
-                    if (!(obj.validate(phoneNumber, "(^[+[1-9]{1,}[0-9\\-]{0,}[ ]{1}[1-9]{1}[0-9]{9}$)")))
-                    {
-                        throw new MyException("Exception::Phone number is not in required format....");
+                   
+                    Console.WriteLine(result[result.Count-1].ErrorMessage);
 
 
-                    }
+                }
+                else
+                {
                     break;
                 }
-                catch (MyException me)
-                {
-                    Console.WriteLine(me.Message);
-
-                }
-
             }
+
 
 
             while (true)
             {
                 //getting password as input from user
-                Console.WriteLine("Enter your password : ");
-                password = Console.ReadLine();
-                try
-                {
-                    //valdating the password
-                    if (!(obj.validate(password, "(^(?=.{8,}$)((?=.*[A-Z])(?=.*[0-9])([a-zA-Z0-9]*[!@#$^&*()-+=]{1}[a-zA-Z0-9]*))$)")))
-                    {
-                        throw new MyException("Exception::Password is not in required format....");
+                Console.WriteLine("Enter your password");
+                userObject.password = Console.ReadLine();
 
-                    }
+                //valdating the password
+                isValid = Validator.TryValidateObject(userObject, context, result,true);
+                
+                if (!isValid)
+                {
+                    Console.WriteLine(result[result.Count-1].ErrorMessage);
+              
+
+                }
+                else
+                {
                     break;
                 }
-                catch (MyException me)
-                {
-                    Console.WriteLine(me.Message);
-
-                }
-
             }
 
-            Console.WriteLine("\nRegistration successful\n");
 
-            Console.WriteLine("First Name :" + firstName);
-            Console.WriteLine("Last Name: " + lastName);
-            Console.WriteLine("Email address :" + emailId);
-            Console.WriteLine("phone number :" + phoneNumber);
-            Console.WriteLine("passord :" + password);
+
+            userObject.display();
         }
-
-
     }
-}
+}  
+
+
+
+    
+
