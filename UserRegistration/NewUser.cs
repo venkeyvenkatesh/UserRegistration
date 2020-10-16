@@ -49,6 +49,7 @@ namespace UserRegistration
 
         [StringLength(15,MinimumLength =8,ErrorMessage ="{0} field is required")]
         [RegularExpression("(^(?=.{8,15}$)((?=.*[A-Z])(?=.*[0-9])([a-zA-Z0-9]*[!@#$^&*()-+=]{1}[a-zA-Z0-9]*))$)", ErrorMessage = "Invalid Password entered")]
+
         public string password
         {
             get;
